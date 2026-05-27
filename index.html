@@ -8,7 +8,7 @@
   <meta name="keywords" content="family office execution advisory, portfolio liquidity stress test, TCA for family offices, market impact model independent consultant, algorithmic trading calibration, custom VWAP strategy design, slippage analysis for concentrated positions, factor exposure heatmap, market microstructure consultancy">
   <meta name="author" content="Institutional Edge">
   <meta property="og:title" content="Institutional Edge | Independent Quantitative Advisory">
-  <meta property="og:description" content="A decade of institutional experience applied to your portfolio: execution research, factor exposure, liquidity stress, TCA+ and bespoke algorithm design.">
+  <meta property="og:description" content="Prime institutional experience applied to your portfolio: execution research, factor exposure, liquidity stress, TCA+ and bespoke algorithm design.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A2540">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -150,7 +150,6 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
       font-size: 1.32rem;
       font-weight: 700;
       color: var(--blue);
@@ -286,6 +285,13 @@
       text-transform: uppercase;
     }
     .terminal-body { padding: 18px; }
+    .terminal-body .context {
+      margin: 0 0 12px;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+      color: #4B5968;
+      font-size: .86rem;
+    }
     .quote-row {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -436,6 +442,45 @@
       text-transform: uppercase;
     }
 
+    .capability-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+    .capability-tags span {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #F4F7FA;
+      color: #405062;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .brand-logos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .brand-logo {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #F4F6F8;
+      color: #5D6874;
+      filter: grayscale(1);
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+    .brand-logo.goldman { font-family: Georgia, serif; font-size: 1.05rem; }
+    .brand-logo.gic { font-size: 1.55rem; letter-spacing: .14em; }
+    .brand-logo.moodys { font-size: 1.22rem; font-family: Georgia, serif; }
+
     .framework {
       background: var(--blue);
       color: rgba(255,255,255,.82);
@@ -465,6 +510,314 @@
       line-height: 1;
     }
     .step p { margin-bottom: 0; color: rgba(255,255,255,.68); font-size: .9rem; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(360px, .75fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .analysis-panel,
+    .diagram-panel,
+    .algo-card,
+    .micro-card,
+    .model-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .analysis-panel { padding: 28px; }
+    .risk-bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .risk-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 58px;
+      gap: 12px;
+      align-items: center;
+      color: #455463;
+      font-size: .86rem;
+      font-weight: 800;
+    }
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: #E8EDF2;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--gold), var(--red));
+    }
+    .xray-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .xray-action {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #FAFBFC;
+      color: #4B5968;
+      font-size: .84rem;
+    }
+    .xray-action b { display: block; color: var(--blue); }
+    .diagram-panel {
+      padding: 24px;
+      overflow: hidden;
+    }
+    .concentration-map {
+      position: relative;
+      min-height: 355px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(rgba(10,37,64,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,37,64,.05) 1px, transparent 1px),
+        #FBFCFD;
+      background-size: 32px 32px;
+    }
+    .bubble {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(10,37,64,.18);
+      border-radius: 50%;
+      background: rgba(10,37,64,.08);
+      color: var(--blue);
+      font-size: .72rem;
+      font-weight: 900;
+      text-align: center;
+    }
+    .bubble.danger { background: rgba(169,77,77,.18); border-color: rgba(169,77,77,.32); color: #7B3232; }
+    .bubble.warn { background: rgba(184,138,68,.18); border-color: rgba(184,138,68,.36); }
+    .bubble.safe { background: rgba(47,125,105,.14); border-color: rgba(47,125,105,.28); color: #246653; }
+    .axis-label {
+      position: absolute;
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .manager-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .manager-card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .manager-card i {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--blue);
+      background: #F4F7FA;
+    }
+
+    .execution-lab {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .7fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .impact-surface {
+      min-height: 440px;
+      padding: 24px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .surface-plot {
+      position: relative;
+      height: 285px;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 78% 18%, rgba(169,77,77,.46), transparent 32%),
+        radial-gradient(ellipse at 54% 48%, rgba(184,138,68,.48), transparent 35%),
+        radial-gradient(ellipse at 18% 82%, rgba(47,125,105,.36), transparent 36%),
+        linear-gradient(135deg, #F7FAFC, #E8EEF4);
+    }
+    .surface-plot::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      background:
+        linear-gradient(rgba(10,37,64,.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,37,64,.09) 1px, transparent 1px);
+      background-size: 34px 28px;
+      transform: perspective(700px) rotateX(54deg) rotateZ(-15deg) translateY(35px);
+      transform-origin: center;
+      border: 1px solid rgba(10,37,64,.08);
+    }
+    .surface-label {
+      position: absolute;
+      padding: 6px 8px;
+      border: 1px solid rgba(10,37,64,.12);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.82);
+      color: var(--blue);
+      font-size: .74rem;
+      font-weight: 900;
+    }
+    .schedule-plot {
+      min-height: 440px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+    .bars {
+      display: flex;
+      align-items: end;
+      gap: 7px;
+      height: 210px;
+      margin-top: 24px;
+      padding: 18px 12px 0;
+      border-bottom: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, #FBFCFD, #F2F5F8);
+    }
+    .exec-bar {
+      flex: 1;
+      min-width: 7px;
+      border-radius: 5px 5px 0 0;
+      background: var(--blue);
+      opacity: .88;
+    }
+    .exec-bar.block { background: var(--gold); }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      color: #526170;
+      font-size: .82rem;
+      font-weight: 800;
+    }
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 6px;
+      border-radius: 2px;
+      background: var(--blue);
+    }
+    .legend .gold::before { background: var(--gold); }
+    .algo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .algo-card {
+      padding: 18px;
+      min-height: 210px;
+    }
+    .algo-card i {
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .algo-card p { color: #4B5968; font-size: .86rem; }
+    .proscons {
+      display: grid;
+      gap: 5px;
+      margin-top: 10px;
+      color: #596776;
+      font-size: .78rem;
+    }
+    .proscons b { color: var(--blue); }
+
+    .micro-grid,
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .micro-card,
+    .model-card {
+      padding: 24px;
+      min-height: 265px;
+    }
+    .mini-book {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 4px;
+      margin: 18px 0;
+      height: 86px;
+      align-items: end;
+    }
+    .mini-book span {
+      display: block;
+      border-radius: 3px 3px 0 0;
+      background: rgba(10,37,64,.22);
+    }
+    .mini-book .bid { background: rgba(47,125,105,.58); }
+    .mini-book .ask { background: rgba(169,77,77,.58); }
+    .queue-line {
+      position: relative;
+      height: 86px;
+      margin: 18px 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #F7FAFC;
+    }
+    .queue-dot {
+      position: absolute;
+      top: 33px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .elastic-curve {
+      position: relative;
+      height: 86px;
+      margin: 18px 0;
+      border-left: 1px solid var(--line-strong);
+      border-bottom: 1px solid var(--line-strong);
+      background: linear-gradient(135deg, transparent 48%, rgba(184,138,68,.42) 49%, rgba(184,138,68,.42) 52%, transparent 53%);
+    }
+    .glossary-mosaic {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .term-tile {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      min-height: 160px;
+    }
+    .term-tile.featured {
+      grid-column: span 2;
+      background: var(--blue);
+      color: rgba(255,255,255,.78);
+    }
+    .term-tile.featured h3 { color: white; }
+    .term-tile p { margin-bottom: 0; color: #4F5E6D; font-size: .86rem; }
+    .term-tile.featured p { color: rgba(255,255,255,.72); }
 
     .visual-grid {
       display: grid;
@@ -821,6 +1174,30 @@
       min-height: 126px;
       resize: vertical;
     }
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .check-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      min-height: 44px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.1);
+      color: rgba(255,255,255,.86);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+    .check-option input {
+      width: auto;
+      min-height: auto;
+      margin-top: 3px;
+      accent-color: white;
+    }
     .form .btn {
       width: 100%;
       margin-top: 6px;
@@ -861,9 +1238,17 @@
       .hero-panel { margin-top: 0; }
       .services-grid,
       .resource-grid,
-      .testimonial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .testimonial-grid,
+      .manager-grid,
+      .micro-grid,
+      .model-grid,
+      .algo-grid,
+      .glossary-mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .framework-grid,
-      .tier-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .tier-grid,
+      .brand-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .product-grid,
+      .execution-lab { grid-template-columns: 1fr; }
       .sticky-note { position: static; }
     }
     @media (max-width: 760px) {
@@ -882,9 +1267,17 @@
       .tier-grid,
       .resource-grid,
       .testimonial-grid,
+      .manager-grid,
+      .micro-grid,
+      .model-grid,
+      .algo-grid,
+      .brand-logos,
+      .glossary-mosaic,
+      .xray-actions,
       .logos {
         grid-template-columns: 1fr;
       }
+      .term-tile.featured { grid-column: span 1; }
       .metric,
       .band-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .band-item { min-height: auto; }
@@ -903,7 +1296,6 @@
   <header class="site-header" aria-label="Primary navigation">
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Institutional Edge home">
-        <span class="mark" aria-hidden="true"></span>
         <span>Institutional Edge</span>
       </a>
       <nav class="nav-links" aria-label="Site sections">
@@ -923,34 +1315,36 @@
         <div class="hero-copy">
           <div class="hero-kicker">
             <span class="pill"><i class="fa-solid fa-chart-line"></i> Independent quant advisory</span>
-            <span class="pill"><i class="fa-solid fa-lock"></i> Conflict-free execution research</span>
+            <span class="pill"><i class="fa-solid fa-lock"></i> Unbiased execution research</span>
             <span class="pill"><i class="fa-solid fa-location-dot"></i> Lyon, Geneva, London, Singapore</span>
           </div>
           <h1 id="hero-title">Institutional Edge</h1>
-          <p class="tagline">A decade of institutional experience applied to your portfolio.</p>
-          <p class="lead">Independent, institutional-grade advisory for family offices, post-exit entrepreneurs and hedge funds operating in liquid public markets: <strong>market impact</strong>, <strong>liquidity at risk</strong>, <strong>slippage decomposition</strong> and <strong>factor crowding</strong> translated into decisions.</p>
+          <p class="tagline">Prime institutional experience applied to your portfolio.</p>
+          <p class="lead">Independent, institutional-grade advisory for family offices, post-exit entrepreneurs and hedge funds operating in liquid public markets: <strong>market impact</strong>, <strong>liquidity at risk</strong>, <strong>slippage decomposition</strong> and <strong>factor crowding</strong> translated into decisions. In public markets, execution often makes all the difference between a good investment idea and a good realized outcome.</p>
           <div class="hero-actions">
             <a class="btn" href="#contact"><i class="fa-regular fa-calendar-check"></i> Request a confidential consultation</a>
             <a class="btn secondary" href="#services"><i class="fa-solid fa-arrow-trend-up"></i> View advisory scope</a>
           </div>
           <div class="metrics" aria-label="Founder experience metrics">
-            <div class="metric"><b>80+</b><span>Cross-asset strategies</span></div>
-            <div class="metric"><b>10+</b><span>Years institutional desks</span></div>
-            <div class="metric"><b>TCA+</b><span>Execution research</span></div>
-            <div class="metric"><b>€500M+</b><span>Family office focus</span></div>
+            <div class="metric"><b>Alpha</b><span>Momentum, seasonality, carry, relative value</span></div>
+            <div class="metric"><b>Vol</b><span>Dispersion, gamma, skew and volatility carry</span></div>
+            <div class="metric"><b>Assets</b><span>Equities, futures, FX, rates, commodities</span></div>
+            <div class="metric"><b>TCA+</b><span>Execution, liquidity and broker analytics</span></div>
           </div>
         </div>
         <aside class="hero-panel" aria-label="Execution analytics preview">
           <div class="terminal-head">
-            <span>Execution X-Ray</span>
+            <span>White Glove Execution</span>
             <span>Live Mock</span>
           </div>
           <div class="terminal-body">
-            <div class="quote-row"><span><strong>Order</strong><br>Sell 1.8M shares over 4 sessions</span><span class="risk">11.8% ADV</span></div>
-            <div class="quote-row"><span><strong>Liquidity at risk</strong><br>Open / close crowding, dark-to-lit drift</span><span>High</span></div>
-            <div class="quote-row"><span><strong>Expected impact</strong><br>Almgren-Chriss + venue toxicity overlay</span><span>42 bps</span></div>
-            <div class="quote-row"><span><strong>Implementation shortfall</strong><br>Arrival to final VWAP benchmark</span><span class="basis">-18 bps</span></div>
-            <div class="quote-row"><span><strong>Recommendation</strong><br>Participation cap, conditional blocks, broker wheel calibration</span><span>4 days</span></div>
+            <p class="context">A discreet advisory desk for pre-trade design and post-trade analytics: venue quality, retail participation, touch size, broker behavior and market-specific rules translated into an execution plan.</p>
+            <div class="quote-row"><span><strong>Order context</strong><br>Sell 1.8M shares over 4 sessions</span><span class="risk">11.8% ADV</span></div>
+            <div class="quote-row"><span><strong>Venue mix</strong><br>Lit book, conditional blocks, dark midpoint, closing auction</span><span>4 routes</span></div>
+            <div class="quote-row"><span><strong>Retail participation</strong><br>High odd-lot noise; weak displayed depth at touch</span><span>38%</span></div>
+            <div class="quote-row"><span><strong>Pre-trade impact</strong><br>Obizhaeva-Wang resilience + venue toxicity overlay</span><span>34 bps</span></div>
+            <div class="quote-row"><span><strong>Post-trade attribution</strong><br>Shortfall split by spread, timing, impact and leakage</span><span class="basis">Actionable</span></div>
+            <div class="quote-row"><span><strong>Recommendation</strong><br>Broker wheel, randomized clips, block anchors, passive finish</span><span>4 days</span></div>
           </div>
         </aside>
       </div>
@@ -968,27 +1362,32 @@
       <div class="container philosophy-grid">
         <aside class="bio-card">
           <div class="bio-top">
-            <p class="eyebrow">Founder profile</p>
-            <h3>Jonathan Seror</h3>
-            <p>Quantitative research, trading and analytics professional across systematic trading, execution modelling and credit analytics.</p>
+            <p class="eyebrow">Institutional lens</p>
+            <h3>Built from trading desks, sovereign capital and credit analytics.</h3>
+            <p>The advisory approach reflects experience inside global banks, sovereign wealth funds and rating analytics environments.</p>
           </div>
           <div class="timeline">
-            <div class="timeline-item"><time>2024-2025</time><p><strong>GIC, Singapore.</strong> Market microstructure research across execution strategy, alpha oversight, TCA, hedging analytics and automated trading performance reporting.</p></div>
-            <div class="timeline-item"><time>2018-2023</time><p><strong>Goldman Sachs, Singapore.</strong> Built Asia presence for systematic and electronic trading strategists; designed execution algorithms, FIX connectivity and cross-asset systematic books.</p></div>
-            <div class="timeline-item"><time>2013-2017</time><p><strong>Moody's Analytics, London / Singapore.</strong> Quantitative advisory for credit portfolio modelling, risk-adjusted performance and market-implied risk premia.</p></div>
-            <div class="timeline-item"><time>Education</time><p>MSc Financial Engineering, Paris. MSc Quantum Physics, Lyon. Publications on market sentiment, hidden Markov models and credit default swap pricing.</p></div>
+            <div class="timeline-item"><time>Bank desks</time><p><strong>Goldman Sachs-style systematic trading discipline.</strong> Cross-asset execution, electronic trading, FIX connectivity and strategy oversight across momentum, carry, volatility, curve and relative value books.</p></div>
+            <div class="timeline-item"><time>Sovereign capital</time><p><strong>GIC-style microstructure research.</strong> Work with execution, risk and allocation quants to assess external managers, trading performance, hedging analytics and market footprint.</p></div>
+            <div class="timeline-item"><time>Risk analytics</time><p><strong>Moody's-style portfolio interpretation.</strong> Scenario analysis, concentration, correlation and risk-adjusted performance translated into governance-ready advice.</p></div>
+            <div class="timeline-item"><time>Private capital</time><p><strong>Ad-hoc clarity for complex situations.</strong> A go-to external lens for execution, liquidity, portfolio balance and fund investment strategy review.</p></div>
           </div>
         </aside>
         <div>
           <p class="eyebrow">About / Philosophy</p>
           <h2 id="philosophy-title">Judgment, not just data.</h2>
-          <p class="lead">Institutional Edge exists for private capital that needs the discipline of a sovereign fund without the conflicts of a broker, prime desk or asset manager.</p>
-          <p>Family offices and founders often receive impressive reporting while the largest leakages remain unmeasured: implicit costs, liquidity stress, broker selection, hidden factor bets and execution paths that reveal more information than they should. The advisory model is independent by design. No commission routing. No product distribution. No asset gathering. The work is to diagnose the portfolio, quantify the trade-off, and help decision-makers act with institutional precision.</p>
-          <p>Experience spans systematic strategy portfolios across equities, rates, FX, commodities and volatility; execution algorithms optimized for latency, slippage and footprint; and credit analytics for institutional risk teams. The result is a practical operating lens: where is the risk, what is the cost of action, and how should the order or portfolio move through real market depth?</p>
+          <p class="lead">Institutional Edge exists for family offices, founders and smaller funds that need the discipline of a sovereign fund without becoming dependent on broker dashboards or generic terminals.</p>
+          <p>There is more market content than ever. The scarce resource is not another screen; it is interpretation. We review the evidence, select what matters, decrypt complex execution and portfolio situations, and return actionable feedback with tangible outcomes. A Bloomberg workflow, BQuant notebook or broker report can compute useful numbers. Institutional Edge explains what those numbers mean, where they are incomplete, and what to do next.</p>
+          <p>The advisory model is independent by design. No commission routing. No product distribution. No asset gathering. The work is to diagnose the portfolio, quantify the trade-off, and help decision-makers act with institutional precision through ad-hoc reviews, pre-trade calls, post-trade analysis and quarterly reporting.</p>
+          <div class="brand-logos" aria-label="Institutional experience references">
+            <div class="brand-logo goldman" role="img" aria-label="Goldman Sachs wordmark">Goldman Sachs</div>
+            <div class="brand-logo gic" role="img" aria-label="GIC wordmark">GIC</div>
+            <div class="brand-logo moodys" role="img" aria-label="Moody's wordmark">Moody's</div>
+          </div>
           <div class="principles">
             <div class="principle">
               <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
-              <h3>Conflict-free advice</h3>
+              <h3>Unbiased advice</h3>
               <p>Analysis is separated from brokerage, execution commissions, asset management and product placement.</p>
             </div>
             <div class="principle">
@@ -999,12 +1398,17 @@
             <div class="principle">
               <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
               <h3>Discretion by default</h3>
-              <p>Engagements are designed for CIOs, CFOs and principals who value confidentiality and direct expertise.</p>
+              <p>Engagements are designed for CIOs, CFOs, fund partners and principals who value confidentiality and direct expertise.</p>
             </div>
             <div class="principle">
               <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
               <h3>Institutional operating craft</h3>
               <p>Python, kdb/q, market microstructure research, broker analytics and portfolio oversight brought into one advisory workflow.</p>
+            </div>
+            <div class="principle">
+              <i class="fa-solid fa-arrows-to-dot" aria-hidden="true"></i>
+              <h3>Execution makes the difference</h3>
+              <p>Two investors can hold the same view and achieve very different results because of timing, venue, clip size, broker selection and information leakage.</p>
             </div>
           </div>
         </div>
@@ -1024,11 +1428,11 @@
           <article class="service">
             <i class="fa-solid fa-x-ray" aria-hidden="true"></i>
             <h3>Portfolio Risk X-Ray</h3>
-            <p>Independent portfolio liquidity stress test and factor exposure heatmap for family offices and post-exit entrepreneurs with concentrated public market risk.</p>
+            <p>Portfolio interpretation inspired by tools such as <a href="https://www.moodys.com/web/en/us/solutions/portfolio-management/credit-portfolio-management.html" target="_blank" rel="noopener">Moody's portfolio risk analytics</a>, rebuilt for liquid markets with an execution and liquidity lens.</p>
             <ul>
-              <li><strong>Factor exposures</strong>, beta drift and crowded style decomposition</li>
-              <li><strong>Liquidity stress</strong>, capacity bands and scenario liquidation windows</li>
-              <li>Hidden costs, tail risk, volatility clustering and hedge overlay diagnostics</li>
+              <li>Why the portfolio is more concentrated or correlated than the manager thinks</li>
+              <li>Which position is most dangerous after volatility, size, liquidity and events</li>
+              <li>Actions to make the book more balanced, resilient and executable</li>
             </ul>
             <div class="confidential">Available upon request</div>
           </article>
@@ -1061,7 +1465,7 @@
             <ul>
               <li>Parameter optimisation for POV, VWAP, TWAP, IS and close-target algos</li>
               <li>Bespoke algorithm specs, routing logic and venue toxicity overlays</li>
-              <li>Monitoring reports for footprint, fill quality and model drift</li>
+              <li>Experts who have helped bulge-bracket market makers tailor custom execution algos to a fund's flow, trading style and market footprint</li>
             </ul>
             <div class="confidential">Private scope discussion</div>
           </article>
@@ -1078,14 +1482,156 @@
           </article>
           <article class="service">
             <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-            <h3>Manager & Broker Due Diligence</h3>
-            <p>Independent technical review of hedge fund execution, broker routing practices, capacity claims and factor-based performance explanations.</p>
+            <h3>Fund Evaluation & Manager Due Diligence</h3>
+            <p>External manager program-style assessment for family offices and allocators evaluating a hedge fund, systematic strategy, trading sleeve or public-market fund investment.</p>
             <ul>
-              <li>Capacity analysis, turnover diagnostics and implementation shortfall review</li>
-              <li><strong>Factor crowding</strong>, style drift and hidden leverage checks</li>
-              <li>Investment committee memos written for decision, not decoration</li>
+              <li>Strategy risks, shortcomings, capacity, turnover and implementation shortfall</li>
+              <li><strong>Factor crowding</strong>, style drift, hidden leverage and liquidity mismatch</li>
+              <li>Institutional assessment informed by strategy-book oversight and sovereign allocation dialogue</li>
             </ul>
             <div class="confidential">Available upon request</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="xray-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Portfolio X-Ray</p>
+            <h2 id="xray-title">Risk tools calculate. We interpret.</h2>
+          </div>
+          <p class="lead">The product starts where generic analytics stop: concentration, correlation, liquidity, upcoming events and execution feasibility reviewed together by practitioners who have worked with portfolio risk and market microstructure teams.</p>
+        </div>
+        <div class="product-grid">
+          <article class="analysis-panel">
+            <h3>Family office portfolio resilience review</h3>
+            <p>A portfolio may look diversified across managers, funds and public names while still depending on one regime: quality-growth, USD duration, China beta, AI semiconductors, low-volatility carry or crowded defensive exposure. Portfolio X-Ray identifies the dangerous positions, explains why they matter, and gives an action list.</p>
+            <div class="risk-bars" aria-label="Illustrative portfolio risk drivers">
+              <div class="risk-row"><span>Concentration</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div><span>High</span></div>
+              <div class="risk-row"><span>Liquidity</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div><span>Fragile</span></div>
+              <div class="risk-row"><span>Correlation</span><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div><span>Hidden</span></div>
+              <div class="risk-row"><span>Event risk</span><div class="bar-track"><div class="bar-fill" style="width:57%"></div></div><span>Active</span></div>
+              <div class="risk-row"><span>Hedge gap</span><div class="bar-track"><div class="bar-fill" style="width:61%"></div></div><span>Open</span></div>
+            </div>
+            <div class="xray-actions">
+              <div class="xray-action"><b>Rebalance</b>Reduce duplicated factor exposure before liquidity deteriorates.</div>
+              <div class="xray-action"><b>Sequence</b>Prioritize exits by market depth, event calendar and crowding.</div>
+              <div class="xray-action"><b>Hedge</b>Use liquid futures or options overlays only where basis risk is acceptable.</div>
+            </div>
+          </article>
+          <aside class="diagram-panel">
+            <h3>Illustrative concentration map</h3>
+            <p class="muted">Bubble size reflects position size. Color reflects liquidity danger after volatility and market events.</p>
+            <div class="concentration-map" aria-label="Portfolio concentration and liquidity danger map">
+              <span class="axis-label" style="left:16px;bottom:14px;">Lower liquidity risk</span>
+              <span class="axis-label" style="right:16px;top:14px;">Higher correlation</span>
+              <div class="bubble danger" style="width:118px;height:118px;left:58%;top:16%;">Single name<br>12.4%</div>
+              <div class="bubble warn" style="width:92px;height:92px;left:35%;top:38%;">AI beta<br>8.1%</div>
+              <div class="bubble warn" style="width:76px;height:76px;left:61%;top:58%;">Quality<br>6.7%</div>
+              <div class="bubble safe" style="width:66px;height:66px;left:18%;top:54%;">Macro<br>4.4%</div>
+              <div class="bubble" style="width:56px;height:56px;left:23%;top:18%;">Credit<br>3.8%</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="manager-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Fund evaluation</p>
+            <h2 id="manager-title">External manager diligence through an institutional strategy lens.</h2>
+          </div>
+          <p class="lead">For allocators, fund principals and multi-family offices reviewing hedge funds, systematic strategies or concentrated public-market mandates.</p>
+        </div>
+        <div class="manager-grid">
+          <article class="manager-card"><i class="fa-solid fa-chess-knight"></i><h3>Strategy mechanics</h3><p>We review whether the stated edge matches the traded universe, turnover, signal half-life, transaction costs, capacity and drawdown behavior. Momentum, seasonality, carry, dispersion, curve, volatility and relative value strategies each fail differently.</p></article>
+          <article class="manager-card"><i class="fa-solid fa-chart-pie"></i><h3>Risk and allocation fit</h3><p>We assess factor overlap, hidden leverage, tail exposure, beta leakage and whether the manager improves the portfolio after liquidity, implementation and crowding are considered.</p></article>
+          <article class="manager-card"><i class="fa-solid fa-file-signature"></i><h3>Committee-ready assessment</h3><p>The output is a direct investment memo: what works, what is fragile, which questions to ask, what data to request, and what allocation size is defensible.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="execution-science-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Execution science</p>
+            <h2 id="execution-science-title">Beyond a vanilla Almgren-Chriss template.</h2>
+          </div>
+          <p class="lead">Pre-trade and post-trade analytics require different models. We combine Almgren-Chriss, Obizhaeva-Wang-style resilience, order-book reconstruction, venue toxicity and broker behavior rather than forcing one framework onto every market. Execution is not operational plumbing; it is where thesis quality becomes realized performance.</p>
+        </div>
+        <div class="execution-lab">
+          <article class="impact-surface">
+            <h3>Price impact surface</h3>
+            <p class="muted">Impact changes nonlinearly with order size, execution time, spread state, volatility and resilience. A slow schedule is not always safer when signal decay and leakage dominate.</p>
+            <div class="surface-plot" aria-label="Stylized price impact surface">
+              <span class="surface-label" style="right:24px;top:22px;">High impact</span>
+              <span class="surface-label" style="left:26px;bottom:24px;">Low impact</span>
+              <span class="surface-label" style="left:42%;bottom:18px;">Execution time</span>
+              <span class="surface-label" style="right:20px;bottom:72px;">Order size</span>
+            </div>
+          </article>
+          <article class="schedule-plot">
+            <h3>Custom schedule design</h3>
+            <p class="muted">Instead of linear TWAP, a trade can start with a block, continue through randomized VWAP-like slices, rotate across brokers, and finish with a final liquidity event.</p>
+            <div class="bars" aria-label="Custom order schedule with blocks and randomized child orders">
+              <div class="exec-bar block" style="height:86%"></div>
+              <div class="exec-bar" style="height:22%"></div>
+              <div class="exec-bar" style="height:31%"></div>
+              <div class="exec-bar" style="height:18%"></div>
+              <div class="exec-bar" style="height:34%"></div>
+              <div class="exec-bar" style="height:27%"></div>
+              <div class="exec-bar" style="height:42%"></div>
+              <div class="exec-bar" style="height:24%"></div>
+              <div class="exec-bar" style="height:37%"></div>
+              <div class="exec-bar" style="height:29%"></div>
+              <div class="exec-bar" style="height:21%"></div>
+              <div class="exec-bar block" style="height:72%"></div>
+            </div>
+            <div class="legend"><span class="gold">Block anchors</span><span>Randomized child orders</span></div>
+          </article>
+        </div>
+        <div class="algo-grid" aria-label="Execution algorithms with pros and cons">
+          <article class="algo-card"><i class="fa-solid fa-clock"></i><h3>TWAP</h3><p>Splits the order evenly through time.</p><div class="proscons"><span><b>Pro:</b> simple and predictable governance.</span><span><b>Risk:</b> predictable footprint and weak volume adaptation.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-chart-column"></i><h3>VWAP</h3><p>Uses a historical volume curve to target the session's volume-weighted benchmark.</p><div class="proscons"><span><b>Pro:</b> intuitive benchmark.</span><span><b>Risk:</b> crowding around the same curve.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-percent"></i><h3>POV</h3><p>Trades as a percentage of market volume.</p><div class="proscons"><span><b>Pro:</b> adapts to live liquidity.</span><span><b>Risk:</b> chases volume spikes and adverse selection.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-location-crosshairs"></i><h3>Arrival Price / IS</h3><p>Balances market impact against timing risk from the decision price.</p><div class="proscons"><span><b>Pro:</b> economically honest.</span><span><b>Risk:</b> sensitive to urgency assumptions.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-ice-cream"></i><h3>Iceberg / Reserve</h3><p>Displays only part of the order to hide full size.</p><div class="proscons"><span><b>Pro:</b> lowers visible footprint.</span><span><b>Risk:</b> refresh patterns can leak intent.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-circle-half-stroke"></i><h3>Dark / Midpoint</h3><p>Seeks hidden liquidity and midpoint price improvement.</p><div class="proscons"><span><b>Pro:</b> reduces lit signaling.</span><span><b>Risk:</b> venue toxicity and low fill certainty.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Adaptive</h3><p>Adjusts aggressiveness based on spread, depth and urgency.</p><div class="proscons"><span><b>Pro:</b> flexible in changing markets.</span><span><b>Risk:</b> opaque broker-specific logic.</span></div></article>
+          <article class="algo-card"><i class="fa-solid fa-circle-nodes"></i><h3>Algo Wheel</h3><p>Rotates orders across brokers to compare quality and reduce concentration.</p><div class="proscons"><span><b>Pro:</b> broker discipline and lower leakage.</span><span><b>Risk:</b> needs clean attribution and governance.</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="micro-dynamics-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Market microstructure dynamics</p>
+            <h2 id="micro-dynamics-title">The book is alive; execution should be too.</h2>
+          </div>
+          <p class="lead">Short, practical education for clients who do not need a PhD in microstructure but do need to know when a broker answer is incomplete.</p>
+        </div>
+        <div class="micro-grid">
+          <article class="micro-card">
+            <h3>Order book resilience</h3>
+            <div class="mini-book"><span class="bid" style="height:36%"></span><span class="bid" style="height:55%"></span><span class="bid" style="height:74%"></span><span class="bid" style="height:42%"></span><span class="ask" style="height:22%"></span><span class="ask" style="height:35%"></span><span class="ask" style="height:58%"></span><span class="ask" style="height:81%"></span></div>
+            <p>Resilience is how quickly liquidity replenishes after a shock. A market can look deep before a trade, vanish during the trade, and refill only after the information risk has passed.</p>
+          </article>
+          <article class="micro-card">
+            <h3>Queue dynamics by exchange</h3>
+            <div class="queue-line"><span class="queue-dot" style="left:14%"></span><span class="queue-dot" style="left:31%;opacity:.76"></span><span class="queue-dot" style="left:56%;opacity:.52"></span><span class="queue-dot" style="left:78%;opacity:.34"></span></div>
+            <p>Price-time priority, lot size, tick size, auction rules and retail flow change the economics of sitting at the bid or ask. The same passive algo can be smart in one venue and naive in another.</p>
+          </article>
+          <article class="micro-card">
+            <h3>Elasticity and touch size</h3>
+            <div class="elastic-curve"></div>
+            <p>Elastic books absorb child orders without major repricing. Inelastic books gap after small clips. Touch size, social size and queue depth shape how much one can trade without being seen.</p>
           </article>
         </div>
       </div>
@@ -1105,7 +1651,8 @@
           <article class="step"><div class="step-num">02</div><h3>Diagnose</h3><p>Separate signal, exposure, spread cost, temporary impact, permanent impact and opportunity cost.</p></article>
           <article class="step"><div class="step-num">03</div><h3>Stress</h3><p>Estimate capacity, liquidation horizon, liquidity at risk and factor crowding under realistic market regimes.</p></article>
           <article class="step"><div class="step-num">04</div><h3>Design</h3><p>Build an execution or risk plan with venues, schedule, controls, broker instructions and monitoring thresholds.</p></article>
-          <article class="step"><div class="step-num">05</div><h3>Govern</h3><p>Deliver committee-ready evidence, model assumptions and repeatable reporting for future decisions.</p></article>
+          <article class="step"><div class="step-num">05</div><h3>Report</h3><p>Deliver committee-ready evidence, model assumptions and repeatable quarterly reporting tied to performance improvement.</p></article>
+          <article class="step"><div class="step-num">06</div><h3>Iterate</h3><p>Review outcomes, recalibrate broker wheels, refine models and keep the advisory loop close to real decisions.</p></article>
         </div>
       </div>
     </section>
@@ -1152,12 +1699,17 @@
           <div>
             <p class="eyebrow">Data partners</p>
             <h2 id="partners-title" style="font-size:clamp(1.9rem,3vw,3rem)">Quiet validation.</h2>
-            <p class="muted">We leverage institutional-grade market data for market microstructure research, liquidity analysis and execution review.</p>
+            <p class="muted">We leverage institutional-grade exchange and market data for market microstructure research, liquidity analysis and execution review across the US, Europe and Asia.</p>
           </div>
           <div class="logos" aria-label="Market data partners">
             <div class="logo-box cboe" role="img" aria-label="CBOE logo">Cboe</div>
             <div class="logo-box nasdaq" role="img" aria-label="Nasdaq logo">Nasdaq</div>
-            <div class="logo-box dtn" role="img" aria-label="DTN IQ Feed logo">DTN IQFeed</div>
+            <div class="logo-box dtn" role="img" aria-label="NYSE logo">NYSE</div>
+            <div class="logo-box dtn" role="img" aria-label="HKEX logo">HKEX</div>
+            <div class="logo-box dtn" role="img" aria-label="Japan Exchange Group logo">JPX</div>
+            <div class="logo-box dtn" role="img" aria-label="Singapore Exchange logo">SGX</div>
+            <div class="logo-box dtn" role="img" aria-label="London Stock Exchange Group logo">LSEG</div>
+            <div class="logo-box dtn" role="img" aria-label="Euronext logo">Euronext</div>
           </div>
         </div>
       </div>
@@ -1183,7 +1735,7 @@
             <span class="tag">Hedge fund due diligence</span>
             <h3>Capacity review for a mid-size systematic manager</h3>
             <p>A family office was considering a €35M allocation to a high-turnover equity strategy. Reported Sharpe looked attractive, but turnover and small-cap participation created capacity fragility. A factor exposure heatmap and implementation shortfall simulation showed that live capacity was materially below the manager's stated level.</p>
-            <div class="case-metrics"><div><b>42%</b><span>Capacity haircut</span></div><div><b>18 bps</b><span>Monthly cost gap</span></div><div><b>2</b><span>Broker conflicts surfaced</span></div></div>
+            <div class="case-metrics"><div><b>42%</b><span>Capacity haircut</span></div><div><b>18 bps</b><span>Monthly cost gap</span></div><div><b>2</b><span>Broker issues surfaced</span></div></div>
           </article>
           <article class="case-card">
             <span class="tag">Execution audit</span>
@@ -1197,6 +1749,47 @@
             <p>A private portfolio held liquid funds across long-only, market neutral and macro sleeves. Factor decomposition showed hidden exposure to quality-growth, USD duration and low-volatility crowding. A liquidity stress test suggested that the same factor would be hard to exit during a drawdown.</p>
             <div class="case-metrics"><div><b>22%</b><span>Drawdown avoided in scenario</span></div><div><b>5</b><span>Hidden factors mapped</span></div><div><b>11 days</b><span>Liquidity-at-risk horizon</span></div></div>
           </article>
+          <article class="case-card">
+            <span class="tag">China market structure</span>
+            <h3>Kweichow Moutai versus BYD: same country, different execution physics</h3>
+            <p>An Asia equity sleeve needed to trade two highly visible China-linked names. Moutai's higher touch value, institutional ownership and episodic depth required patient block discovery; BYD's stronger retail participation and faster queue churn rewarded smaller randomized clips and tighter venue controls. Treating both names with the same VWAP template would have produced unnecessary signaling.</p>
+            <div class="case-metrics"><div><b>2.4x</b><span>Touch-size difference</span></div><div><b>31%</b><span>Retail-flow sensitivity</span></div><div><b>19 bps</b><span>Estimated leakage avoided</span></div></div>
+          </article>
+          <article class="case-card">
+            <span class="tag">Taiwan tick-size regime</span>
+            <h3>TSMC around TWD 1,000: when exchange rules change the algo</h3>
+            <p>TSMC repeatedly trading around the TWD 1,000 threshold created a microstructure regime shift: TWSE rules move the tick size to TWD 5 when a stock is at TWD 1,000 or above. That creates an approximate 0.5% minimum one-tick spread, changes touch volume economics, and can make a passive bid-or-ask posture more rewarding than a standard TWAP.</p>
+            <div class="case-metrics"><div><b>TWD 5</b><span>Tick above 1,000</span></div><div><b>~0.5%</b><span>One-tick spread</span></div><div><b>Passive</b><span>Preferred posture</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="models-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Model edge</p>
+            <h2 id="models-title">Order-book reconstruction, volume forecasting and volatility state detection.</h2>
+          </div>
+          <p class="lead">Pre-trade models should understand the venue before estimating the cost. Bouchaud-style order-book event research, queue reconstruction and resilience measurement provide richer inputs than a static impact coefficient.</p>
+        </div>
+        <div class="model-grid">
+          <article class="model-card">
+            <h3>Order-book reconstruction</h3>
+            <p>We rebuild the book from messages, snapshots and trades to understand cancellations, queue position, displayed depth, hidden liquidity proxies and how the best bid/ask evolves after shocks.</p>
+            <div class="mini-book"><span class="bid" style="height:52%"></span><span class="bid" style="height:35%"></span><span class="bid" style="height:74%"></span><span class="bid" style="height:20%"></span><span class="ask" style="height:61%"></span><span class="ask" style="height:28%"></span><span class="ask" style="height:42%"></span><span class="ask" style="height:69%"></span></div>
+          </article>
+          <article class="model-card">
+            <h3>VWAP is a volume forecast</h3>
+            <p>A VWAP algo is only as good as its expected intraday volume curve. Historical averages miss event days, index rebalance pressure, macro releases, holidays, retail bursts and auction concentration.</p>
+            <div class="bars" style="height:120px;margin-top:18px"><div class="exec-bar" style="height:30%"></div><div class="exec-bar" style="height:36%"></div><div class="exec-bar" style="height:52%"></div><div class="exec-bar" style="height:42%"></div><div class="exec-bar" style="height:65%"></div><div class="exec-bar" style="height:76%"></div><div class="exec-bar" style="height:49%"></div><div class="exec-bar" style="height:92%"></div></div>
+          </article>
+          <article class="model-card">
+            <h3>Machine learning where it helps</h3>
+            <p>Regime detection, volatility clustering, volume forecasting and fill-probability models can improve execution when cross-validated carefully. The goal is not a black box; it is better calibration of urgency, clip size and venue selection.</p>
+            <div class="capability-tags"><span>HMM regimes</span><span>GARCH features</span><span>Gradient boosting</span><span>Kalman filters</span><span>Intraday seasonality</span></div>
+          </article>
         </div>
       </div>
     </section>
@@ -1208,49 +1801,23 @@
           <h3 id="insights-title">A practical glossary for investment committees.</h3>
           <p>These concepts help principals, CIOs and CFOs ask better questions of brokers, managers and internal teams.</p>
         </aside>
-        <div class="accordion">
-          <details class="insight-card" open>
-            <summary>Liquidity at risk <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Liquidity at risk</strong> estimates how much of a position can be converted to cash under stressed market conditions without unacceptable price impact. It goes beyond average daily volume by considering volatility, spread widening, venue fragmentation, factor crowding and the probability that displayed liquidity disappears.</p>
-              <p>For a family office, a portfolio liquidity stress test can reveal which assets are liquid in normal markets but fragile when many investors need the same exit.</p>
-            </div>
-          </details>
-          <details class="insight-card">
-            <summary>Implementation shortfall <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Implementation shortfall</strong> measures the difference between the decision price and the final execution outcome, including spread, fees, market impact, delay cost and missed opportunity. It is often the most honest benchmark for large or urgent trades.</p>
-              <p>A TCA+ review decomposes shortfall into controllable and uncontrollable components, helping committees distinguish broker quality from market conditions.</p>
-            </div>
-          </details>
-          <details class="insight-card">
-            <summary>Adverse selection <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Adverse selection</strong> occurs when liquidity providers trade with you because they infer your order is likely to move the price against you. The result is fills that look complete but are followed by unfavorable price movement.</p>
-              <p>Monitoring venue toxicity, fill reversion, order size and queue behavior can identify when passive trading is quietly expensive.</p>
-            </div>
-          </details>
-          <details class="insight-card">
-            <summary>Factor crowding <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Factor crowding</strong> appears when many portfolios carry similar exposures, such as momentum, quality-growth, low volatility or carry. The risk is not only mark-to-market drawdown; it is the liquidity problem created when investors unwind the same factor simultaneously.</p>
-              <p>A factor exposure heatmap can identify when apparently diverse managers are monetizing the same hidden risk premium.</p>
-            </div>
-          </details>
-          <details class="insight-card">
-            <summary>Information leakage <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Information leakage</strong> is the market learning about your intention before the order is complete. Leakage can come from predictable schedules, venue choices, broker concentration, repeated child-order sizes or aggressive participation near sensitive windows.</p>
-              <p>Good execution design uses randomness, venue controls, conditional liquidity and clear escalation rules to reduce signaling.</p>
-            </div>
-          </details>
-          <details class="insight-card">
-            <summary>Dark pool strategies <i class="fa-solid fa-plus"></i></summary>
-            <div class="insight-body">
-              <p><strong>Dark pool strategies</strong> can reduce visible footprint, but they are not automatically safer. Venue selection, minimum quantity, conditional order behavior, midpoint quality and post-fill price movement all matter.</p>
-              <p>For concentrated positions, dark liquidity is useful when paired with toxicity measurement and a plan for when hidden liquidity fails to materialize.</p>
-            </div>
-          </details>
+        <div class="glossary-mosaic">
+          <article class="term-tile featured"><h3>Liquidity at risk</h3><p>How much can be converted to cash under stress before spread, impact and disappearing depth make the exit unacceptable.</p></article>
+          <article class="term-tile"><h3>Slippage</h3><p>The difference between expected and realized execution, split into spread, timing, impact, fees and missed opportunity.</p></article>
+          <article class="term-tile"><h3>Implementation shortfall</h3><p>The total cost from decision price to final fills; usually the most honest benchmark for large or urgent trades.</p></article>
+          <article class="term-tile"><h3>Adverse selection</h3><p>Fills that look good initially but are followed by unfavorable price movement because the counterparty inferred information.</p></article>
+          <article class="term-tile"><h3>Order book resilience</h3><p>The speed and quality with which depth replenishes after a liquidity shock or aggressive metaorder.</p></article>
+          <article class="term-tile"><h3>Elasticity</h3><p>How much price must move before meaningful new liquidity appears. Low elasticity means small clips can reprice the book.</p></article>
+          <article class="term-tile"><h3>Queue position</h3><p>Your place in the order queue at a given price. It determines passive fill probability and adverse-selection exposure.</p></article>
+          <article class="term-tile"><h3>Algo wheel</h3><p>A controlled rotation across brokers or algos to compare performance, reduce dependency and lower information leakage.</p></article>
+          <article class="term-tile"><h3>Touch size</h3><p>Displayed quantity at the best bid or ask. It often matters more than average daily volume for short-horizon execution.</p></article>
+          <article class="term-tile"><h3>Clip size</h3><p>The child-order quantity released to the market. Too large leaks intent; too small creates delay and queue risk.</p></article>
+          <article class="term-tile"><h3>Social size</h3><p>The locally acceptable order size that blends into normal market behavior for a name, venue and time of day.</p></article>
+          <article class="term-tile"><h3>Factor crowding</h3><p>Multiple managers monetizing similar exposures, creating correlated drawdown and synchronized liquidity demand.</p></article>
+          <article class="term-tile"><h3>Information leakage</h3><p>The market learning your intention from schedule regularity, broker concentration, venue choice or repeated child-order patterns.</p></article>
+          <article class="term-tile"><h3>Dark toxicity</h3><p>The probability that hidden fills are followed by adverse price movement because the venue attracts informed flow.</p></article>
+          <article class="term-tile"><h3>Spread capture</h3><p>Passive execution gain from earning bid-ask spread, only valuable when fill reversion and queue risk are controlled.</p></article>
+          <article class="term-tile"><h3>Market impact decay</h3><p>The portion of price impact that fades after trading stops versus permanent repricing caused by information.</p></article>
         </div>
       </div>
     </section>
@@ -1330,12 +1897,12 @@
           <h2 id="contact-title">Request a confidential consultation.</h2>
           <p class="lead">For portfolio reviews, concentrated exits, broker challenge sessions, algorithm calibration and independent market microstructure consultancy.</p>
           <div class="contact-cards">
-            <div class="contact-line"><i class="fa-regular fa-envelope"></i><div><span>Email</span><br><a href="mailto:hello@institutionaledge.com">hello@institutionaledge.com</a></div></div>
+            <div class="contact-line"><i class="fa-regular fa-envelope"></i><div><span>Email</span><br><a href="mailto:contact@institutionaledge.com">contact@institutionaledge.com</a></div></div>
             <div class="contact-line"><i class="fa-brands fa-linkedin-in"></i><div><span>LinkedIn</span><br><a href="#" aria-label="LinkedIn placeholder">Institutional Edge advisory profile</a></div></div>
-            <div class="contact-line"><i class="fa-solid fa-map-location-dot"></i><div><span>Base</span><br><strong>Lyon, serving Geneva, London and Singapore</strong></div></div>
+            <div class="contact-line"><i class="fa-solid fa-map-location-dot"></i><div><span>Base</span><br><strong>Lyon, serving Geneva, London, Singapore, Hong Kong, Miami and New York</strong></div></div>
           </div>
         </div>
-        <form class="form" action="mailto:hello@institutionaledge.com" method="post" enctype="text/plain">
+        <form class="form" action="mailto:contact@institutionaledge.com" method="post" enctype="text/plain">
           <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" autocomplete="name" placeholder="Your name">
@@ -1345,14 +1912,15 @@
             <input id="email" name="email" type="email" autocomplete="email" placeholder="name@firm.com">
           </div>
           <div class="field">
-            <label for="topic">Advisory topic</label>
-            <select id="topic" name="topic">
-              <option>Portfolio Risk X-Ray</option>
-              <option>Execution Quality Review</option>
-              <option>Pre-Trade Liquidation Advisory</option>
-              <option>Algorithm Calibration & Custom Design</option>
-              <option>Strategic Retainer</option>
-            </select>
+            <label>Advisory topic</label>
+            <div class="check-grid">
+              <label class="check-option"><input type="checkbox" name="topic" value="Introduction" checked> Introduction</label>
+              <label class="check-option"><input type="checkbox" name="topic" value="Portfolio Risk X-Ray"> Portfolio X-Ray</label>
+              <label class="check-option"><input type="checkbox" name="topic" value="Execution Quality Review"> Execution review</label>
+              <label class="check-option"><input type="checkbox" name="topic" value="Pre-Trade Liquidation Advisory"> Pre-trade liquidation</label>
+              <label class="check-option"><input type="checkbox" name="topic" value="Algorithm Calibration"> Algo calibration</label>
+              <label class="check-option"><input type="checkbox" name="topic" value="Fund Evaluation"> Fund evaluation</label>
+            </div>
           </div>
           <div class="field">
             <label for="message">Context</label>
