@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Institutional Edge | Quantitative Advisory for Family Offices & Public Markets Execution</title>
-  <meta name="description" content="Institutional Edge provides independent quantitative advisory for family offices, post-exit entrepreneurs and hedge funds: portfolio liquidity stress tests, TCA, market impact modelling, algorithmic trading calibration and execution design.">
+  <meta name="description" content="Institutional Edge provides independent quantitative advisory for hedge funds, family offices and post-exit entrepreneurs: portfolio liquidity stress tests, TCA, market impact modelling, algorithmic trading calibration and execution design.">
   <meta name="keywords" content="family office execution advisory, portfolio liquidity stress test, TCA for family offices, market impact model independent consultant, algorithmic trading calibration, custom VWAP strategy design, slippage analysis for concentrated positions, factor exposure heatmap, market microstructure consultancy">
   <meta name="author" content="Institutional Edge">
   <meta property="og:title" content="Institutional Edge | Independent Quantitative Advisory">
   <meta property="og:description" content="Prime institutional experience applied to your portfolio: execution research, factor exposure, liquidity stress, TCA+ and bespoke algorithm design.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A2540">
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%230A2540"/><text x="32" y="42" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="700" fill="%23FFFFFF">IE</text></svg>'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -214,12 +215,9 @@
     }
     .hero-grid {
       position: relative;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 370px;
-      gap: 60px;
-      align-items: start;
+      display: block;
     }
-    .hero-copy { padding-bottom: 74px; }
+    .hero-copy { max-width: 980px; padding-bottom: 74px; }
     .hero-kicker {
       display: flex;
       flex-wrap: wrap;
@@ -241,9 +239,10 @@
     }
     .metrics {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       border-top: 1px solid var(--line-strong);
       border-bottom: 1px solid var(--line-strong);
+      max-width: 880px;
     }
     .metric {
       padding: 18px 18px 18px 0;
@@ -262,6 +261,14 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .08em;
+    }
+    .coverage-title {
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
     .hero-panel {
       margin-top: 14px;
@@ -477,10 +484,6 @@
       font-weight: 900;
       letter-spacing: .02em;
     }
-    .brand-logo.goldman { font-family: Georgia, serif; font-size: 1.05rem; }
-    .brand-logo.gic { font-size: 1.55rem; letter-spacing: .14em; }
-    .brand-logo.moodys { font-size: 1.22rem; font-family: Georgia, serif; }
-
     .framework {
       background: var(--blue);
       color: rgba(255,255,255,.82);
@@ -652,23 +655,26 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
-      background:
-        radial-gradient(ellipse at 78% 18%, rgba(169,77,77,.46), transparent 32%),
-        radial-gradient(ellipse at 54% 48%, rgba(184,138,68,.48), transparent 35%),
-        radial-gradient(ellipse at 18% 82%, rgba(47,125,105,.36), transparent 36%),
-        linear-gradient(135deg, #F7FAFC, #E8EEF4);
+      background: linear-gradient(135deg, #F7FAFC, #E8EEF4);
     }
     .surface-plot::before {
       content: "";
       position: absolute;
-      inset: 22px;
+      inset: 34px 30px 42px 42px;
       background:
         linear-gradient(rgba(10,37,64,.09) 1px, transparent 1px),
         linear-gradient(90deg, rgba(10,37,64,.09) 1px, transparent 1px);
-      background-size: 34px 28px;
-      transform: perspective(700px) rotateX(54deg) rotateZ(-15deg) translateY(35px);
+      background-size: 30px 24px;
+      transform: perspective(760px) rotateX(58deg) rotateZ(-18deg) translateY(50px);
       transform-origin: center;
       border: 1px solid rgba(10,37,64,.08);
+    }
+    .surface-svg {
+      position: absolute;
+      inset: 20px;
+      z-index: 1;
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
     }
     .surface-label {
       position: absolute;
@@ -751,7 +757,7 @@
     .micro-grid,
     .model-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
     .micro-card,
@@ -1316,44 +1322,25 @@
           <div class="hero-kicker">
             <span class="pill"><i class="fa-solid fa-chart-line"></i> Independent quant advisory</span>
             <span class="pill"><i class="fa-solid fa-lock"></i> Unbiased execution research</span>
-            <span class="pill"><i class="fa-solid fa-location-dot"></i> Lyon, Geneva, London, Singapore</span>
+            <span class="pill"><i class="fa-solid fa-layer-group"></i> Portfolio, execution and manager diligence</span>
           </div>
           <h1 id="hero-title">Institutional Edge</h1>
           <p class="tagline">Prime institutional experience applied to your portfolio.</p>
-          <p class="lead">Independent, institutional-grade advisory for family offices, post-exit entrepreneurs and hedge funds operating in liquid public markets: <strong>market impact</strong>, <strong>liquidity at risk</strong>, <strong>slippage decomposition</strong> and <strong>factor crowding</strong> translated into decisions. In public markets, execution often makes all the difference between a good investment idea and a good realized outcome.</p>
+          <p class="lead">Independent, institutional-grade advisory for hedge funds, family offices and post-exit entrepreneurs operating in liquid public markets: market impact, liquidity at risk, slippage decomposition and factor crowding translated into decisions. <strong>Execution often makes all the difference between a good investment idea and a good realized outcome.</strong></p>
           <div class="hero-actions">
             <a class="btn" href="#contact"><i class="fa-regular fa-calendar-check"></i> Request a confidential consultation</a>
             <a class="btn secondary" href="#services"><i class="fa-solid fa-arrow-trend-up"></i> View advisory scope</a>
           </div>
-          <div class="metrics" aria-label="Founder experience metrics">
-            <div class="metric"><b>Alpha</b><span>Momentum, seasonality, carry, relative value</span></div>
-            <div class="metric"><b>Vol</b><span>Dispersion, gamma, skew and volatility carry</span></div>
-            <div class="metric"><b>Assets</b><span>Equities, futures, FX, rates, commodities</span></div>
-            <div class="metric"><b>TCA+</b><span>Execution, liquidity and broker analytics</span></div>
+          <div class="coverage-title">Coverage</div>
+          <div class="metrics" aria-label="Coverage">
+            <div class="metric"><b>Assets</b><span>Equities, futures, FX, rates, credit and commodities</span></div>
+            <div class="metric"><b>Alpha</b><span>Momentum, seasonality, curve, relative value, dispersion, gamma, skew and volatility carry</span></div>
           </div>
         </div>
-        <aside class="hero-panel" aria-label="Execution analytics preview">
-          <div class="terminal-head">
-            <span>White Glove Execution</span>
-            <span>Live Mock</span>
-          </div>
-          <div class="terminal-body">
-            <p class="context">A discreet advisory desk for pre-trade design and post-trade analytics: venue quality, retail participation, touch size, broker behavior and market-specific rules translated into an execution plan.</p>
-            <div class="quote-row"><span><strong>Order context</strong><br>Sell 1.8M shares over 4 sessions</span><span class="risk">11.8% ADV</span></div>
-            <div class="quote-row"><span><strong>Venue mix</strong><br>Lit book, conditional blocks, dark midpoint, closing auction</span><span>4 routes</span></div>
-            <div class="quote-row"><span><strong>Retail participation</strong><br>High odd-lot noise; weak displayed depth at touch</span><span>38%</span></div>
-            <div class="quote-row"><span><strong>Pre-trade impact</strong><br>Obizhaeva-Wang resilience + venue toxicity overlay</span><span>34 bps</span></div>
-            <div class="quote-row"><span><strong>Post-trade attribution</strong><br>Shortfall split by spread, timing, impact and leakage</span><span class="basis">Actionable</span></div>
-            <div class="quote-row"><span><strong>Recommendation</strong><br>Broker wheel, randomized clips, block anchors, passive finish</span><span>4 days</span></div>
-          </div>
-        </aside>
       </div>
       <div class="hero-band" aria-label="Professional pedigree">
         <div class="container band-grid">
-          <div class="band-item"><span>Goldman Sachs</span><b>Systematic & Electronic Trading, Vice President</b></div>
-          <div class="band-item"><span>GIC</span><b>Market Microstructure Research, Vice President</b></div>
-          <div class="band-item"><span>Moody's Analytics</span><b>Quantitative Credit Advisory</b></div>
-          <div class="band-item"><span>Research Base</span><b>Execution, risk, alpha oversight and liquidity modelling</b></div>
+          <div class="band-item" style="grid-column:1 / -1"><span>Quantitative DNA</span><b>Our quantitative DNA resides in Systematic & Electronic Trading, Market Microstructure Research and Quantitative Portfolio Management Advisory.</b></div>
         </div>
       </div>
     </section>
@@ -1364,12 +1351,12 @@
           <div class="bio-top">
             <p class="eyebrow">Institutional lens</p>
             <h3>Built from trading desks, sovereign capital and credit analytics.</h3>
-            <p>The advisory approach reflects experience inside global banks, sovereign wealth funds and rating analytics environments.</p>
+            <p>The advisory approach reflects experience across systematic trading desks, sovereign-style allocation processes and quantitative portfolio advisory.</p>
           </div>
           <div class="timeline">
-            <div class="timeline-item"><time>Bank desks</time><p><strong>Goldman Sachs-style systematic trading discipline.</strong> Cross-asset execution, electronic trading, FIX connectivity and strategy oversight across momentum, carry, volatility, curve and relative value books.</p></div>
-            <div class="timeline-item"><time>Sovereign capital</time><p><strong>GIC-style microstructure research.</strong> Work with execution, risk and allocation quants to assess external managers, trading performance, hedging analytics and market footprint.</p></div>
-            <div class="timeline-item"><time>Risk analytics</time><p><strong>Moody's-style portfolio interpretation.</strong> Scenario analysis, concentration, correlation and risk-adjusted performance translated into governance-ready advice.</p></div>
+            <div class="timeline-item"><time>Trading desks</time><p><strong>Systematic trading discipline.</strong> Cross-asset execution, electronic trading, FIX connectivity and strategy oversight across momentum, carry, volatility, curve and relative value books.</p></div>
+            <div class="timeline-item"><time>Allocation lens</time><p><strong>Microstructure and manager research.</strong> Work with execution, risk and allocation-style quants to assess external managers, trading performance, hedging analytics and market footprint.</p></div>
+            <div class="timeline-item"><time>Risk analytics</time><p><strong>Portfolio interpretation.</strong> Scenario analysis, concentration, correlation and risk-adjusted performance translated into governance-ready advice.</p></div>
             <div class="timeline-item"><time>Private capital</time><p><strong>Ad-hoc clarity for complex situations.</strong> A go-to external lens for execution, liquidity, portfolio balance and fund investment strategy review.</p></div>
           </div>
         </aside>
@@ -1379,11 +1366,6 @@
           <p class="lead">Institutional Edge exists for family offices, founders and smaller funds that need the discipline of a sovereign fund without becoming dependent on broker dashboards or generic terminals.</p>
           <p>There is more market content than ever. The scarce resource is not another screen; it is interpretation. We review the evidence, select what matters, decrypt complex execution and portfolio situations, and return actionable feedback with tangible outcomes. A Bloomberg workflow, BQuant notebook or broker report can compute useful numbers. Institutional Edge explains what those numbers mean, where they are incomplete, and what to do next.</p>
           <p>The advisory model is independent by design. No commission routing. No product distribution. No asset gathering. The work is to diagnose the portfolio, quantify the trade-off, and help decision-makers act with institutional precision through ad-hoc reviews, pre-trade calls, post-trade analysis and quarterly reporting.</p>
-          <div class="brand-logos" aria-label="Institutional experience references">
-            <div class="brand-logo goldman" role="img" aria-label="Goldman Sachs wordmark">Goldman Sachs</div>
-            <div class="brand-logo gic" role="img" aria-label="GIC wordmark">GIC</div>
-            <div class="brand-logo moodys" role="img" aria-label="Moody's wordmark">Moody's</div>
-          </div>
           <div class="principles">
             <div class="principle">
               <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
@@ -1428,7 +1410,7 @@
           <article class="service">
             <i class="fa-solid fa-x-ray" aria-hidden="true"></i>
             <h3>Portfolio Risk X-Ray</h3>
-            <p>Portfolio interpretation inspired by tools such as <a href="https://www.moodys.com/web/en/us/solutions/portfolio-management/credit-portfolio-management.html" target="_blank" rel="noopener">Moody's portfolio risk analytics</a>, rebuilt for liquid markets with an execution and liquidity lens.</p>
+            <p>Portfolio interpretation inspired by institutional portfolio risk systems, rebuilt for liquid markets with an execution and liquidity lens.</p>
             <ul>
               <li>Why the portfolio is more concentrated or correlated than the manager thinks</li>
               <li>Which position is most dangerous after volatility, size, liquidity and events</li>
@@ -1565,10 +1547,43 @@
           <p class="lead">Pre-trade and post-trade analytics require different models. We combine Almgren-Chriss, Obizhaeva-Wang-style resilience, order-book reconstruction, venue toxicity and broker behavior rather than forcing one framework onto every market. Execution is not operational plumbing; it is where thesis quality becomes realized performance.</p>
         </div>
         <div class="execution-lab">
+          <aside class="hero-panel" aria-label="White glove execution analytics preview">
+            <div class="terminal-head">
+              <span>White Glove Execution</span>
+              <span>Pre + Post Trade</span>
+            </div>
+            <div class="terminal-body">
+              <p class="context">A discreet advisory desk for pre-trade design and post-trade analytics: venue quality, retail participation, touch size, broker behavior and market-specific rules translated into an execution plan.</p>
+              <div class="quote-row"><span><strong>Order context</strong><br>Sell 1.8M shares over 4 sessions</span><span class="risk">11.8% ADV</span></div>
+              <div class="quote-row"><span><strong>Venue mix</strong><br>Lit book, conditional blocks, dark midpoint, closing auction</span><span>4 routes</span></div>
+              <div class="quote-row"><span><strong>Retail participation</strong><br>High odd-lot noise; weak displayed depth at touch</span><span>38%</span></div>
+              <div class="quote-row"><span><strong>Pre-trade impact</strong><br>Obizhaeva-Wang resilience + venue toxicity overlay</span><span>34 bps</span></div>
+              <div class="quote-row"><span><strong>Post-trade attribution</strong><br>Shortfall split by spread, timing, impact and leakage</span><span class="basis">Actionable</span></div>
+              <div class="quote-row"><span><strong>Recommendation</strong><br>Broker wheel, randomized clips, block anchors, passive finish</span><span>4 days</span></div>
+            </div>
+          </aside>
           <article class="impact-surface">
             <h3>Price impact surface</h3>
-            <p class="muted">Impact changes nonlinearly with order size, execution time, spread state, volatility and resilience. A slow schedule is not always safer when signal decay and leakage dominate.</p>
+            <p class="muted">Impact increases with order size and generally decreases with execution time, until signal decay and leakage reverse the benefit of waiting.</p>
             <div class="surface-plot" aria-label="Stylized price impact surface">
+              <svg class="surface-svg" viewBox="0 0 520 260" role="img" aria-label="Price impact surface rising with order size and falling with execution time">
+                <defs>
+                  <linearGradient id="impactGrad" x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#2F7D69" stop-opacity=".84"/>
+                    <stop offset="48%" stop-color="#B88A44" stop-opacity=".82"/>
+                    <stop offset="100%" stop-color="#A94D4D" stop-opacity=".9"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="70,198 170,178 285,138 430,52 468,86 318,168 186,215 92,229" fill="url(#impactGrad)" stroke="#0A2540" stroke-opacity=".34"/>
+                <polyline points="70,198 170,178 285,138 430,52" fill="none" stroke="#0A2540" stroke-width="2" stroke-opacity=".45"/>
+                <polyline points="92,229 186,215 318,168 468,86" fill="none" stroke="#0A2540" stroke-width="2" stroke-opacity=".28"/>
+                <line x1="70" y1="198" x2="92" y2="229" stroke="#0A2540" stroke-opacity=".18"/>
+                <line x1="170" y1="178" x2="186" y2="215" stroke="#0A2540" stroke-opacity=".18"/>
+                <line x1="285" y1="138" x2="318" y2="168" stroke="#0A2540" stroke-opacity=".18"/>
+                <line x1="430" y1="52" x2="468" y2="86" stroke="#0A2540" stroke-opacity=".18"/>
+                <text x="404" y="42" fill="#0A2540" font-size="13" font-weight="800">large order / short time</text>
+                <text x="68" y="247" fill="#0A2540" font-size="12" font-weight="800">small order / longer time</text>
+              </svg>
               <span class="surface-label" style="right:24px;top:22px;">High impact</span>
               <span class="surface-label" style="left:26px;bottom:24px;">Low impact</span>
               <span class="surface-label" style="left:42%;bottom:18px;">Execution time</span>
@@ -1781,14 +1796,39 @@
             <div class="mini-book"><span class="bid" style="height:52%"></span><span class="bid" style="height:35%"></span><span class="bid" style="height:74%"></span><span class="bid" style="height:20%"></span><span class="ask" style="height:61%"></span><span class="ask" style="height:28%"></span><span class="ask" style="height:42%"></span><span class="ask" style="height:69%"></span></div>
           </article>
           <article class="model-card">
-            <h3>VWAP is a volume forecast</h3>
-            <p>A VWAP algo is only as good as its expected intraday volume curve. Historical averages miss event days, index rebalance pressure, macro releases, holidays, retail bursts and auction concentration.</p>
-            <div class="bars" style="height:120px;margin-top:18px"><div class="exec-bar" style="height:30%"></div><div class="exec-bar" style="height:36%"></div><div class="exec-bar" style="height:52%"></div><div class="exec-bar" style="height:42%"></div><div class="exec-bar" style="height:65%"></div><div class="exec-bar" style="height:76%"></div><div class="exec-bar" style="height:49%"></div><div class="exec-bar" style="height:92%"></div></div>
+            <h3>Actual intraday volume example</h3>
+            <p>A VWAP algo is only as good as its expected intraday volume curve. The example below shows the familiar open/lunch/close shape that historical averages often miss on event days, holidays, rebalances and retail bursts.</p>
+            <div class="bars" style="height:120px;margin-top:18px" aria-label="Intraday volume curve example">
+              <div class="exec-bar" title="Open" style="height:88%"></div>
+              <div class="exec-bar" style="height:64%"></div>
+              <div class="exec-bar" style="height:44%"></div>
+              <div class="exec-bar" style="height:28%"></div>
+              <div class="exec-bar" style="height:24%"></div>
+              <div class="exec-bar" style="height:37%"></div>
+              <div class="exec-bar" style="height:58%"></div>
+              <div class="exec-bar block" title="Close" style="height:96%"></div>
+            </div>
+            <div class="legend"><span>Continuous session</span><span class="gold">Auction / close concentration</span></div>
           </article>
           <article class="model-card">
             <h3>Machine learning where it helps</h3>
             <p>Regime detection, volatility clustering, volume forecasting and fill-probability models can improve execution when cross-validated carefully. The goal is not a black box; it is better calibration of urgency, clip size and venue selection.</p>
             <div class="capability-tags"><span>HMM regimes</span><span>GARCH features</span><span>Gradient boosting</span><span>Kalman filters</span><span>Intraday seasonality</span></div>
+          </article>
+          <article class="model-card">
+            <h3>Futures open interest dynamics</h3>
+            <p>Open interest helps separate new risk transfer from position closing. Around rolls, expiries and crowded macro trades, changes in open interest can reveal whether liquidity is deepening, migrating to the next contract or becoming fragile.</p>
+            <div class="bars" style="height:120px;margin-top:18px" aria-label="Futures open interest dynamics">
+              <div class="exec-bar" style="height:42%"></div>
+              <div class="exec-bar" style="height:48%"></div>
+              <div class="exec-bar" style="height:56%"></div>
+              <div class="exec-bar" style="height:63%"></div>
+              <div class="exec-bar block" style="height:72%"></div>
+              <div class="exec-bar block" style="height:61%"></div>
+              <div class="exec-bar" style="height:44%"></div>
+              <div class="exec-bar" style="height:30%"></div>
+            </div>
+            <div class="legend"><span>Front contract</span><span class="gold">Roll window</span></div>
           </article>
         </div>
       </div>
@@ -1899,7 +1939,8 @@
           <div class="contact-cards">
             <div class="contact-line"><i class="fa-regular fa-envelope"></i><div><span>Email</span><br><a href="mailto:contact@institutionaledge.com">contact@institutionaledge.com</a></div></div>
             <div class="contact-line"><i class="fa-brands fa-linkedin-in"></i><div><span>LinkedIn</span><br><a href="#" aria-label="LinkedIn placeholder">Institutional Edge advisory profile</a></div></div>
-            <div class="contact-line"><i class="fa-solid fa-map-location-dot"></i><div><span>Base</span><br><strong>Lyon, serving Geneva, London, Singapore, Hong Kong, Miami and New York</strong></div></div>
+            <div class="contact-line"><i class="fa-solid fa-map-location-dot"></i><div><span>Base</span><br><strong>Lyon</strong></div></div>
+            <div class="contact-line"><i class="fa-solid fa-globe"></i><div><span>Client locations</span><br><strong>Geneva, Hong Kong, London, Luzern, Lyon, Miami, Monaco, New York, Paris, Singapore, Zug and Zurich</strong></div></div>
           </div>
         </div>
         <form class="form" action="mailto:contact@institutionaledge.com" method="post" enctype="text/plain">
