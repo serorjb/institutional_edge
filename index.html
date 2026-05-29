@@ -1606,8 +1606,13 @@
             </div>
           </aside>
           <article class="impact-surface">
-            <h3>Price impact surface</h3>
-            <p class="muted">Impact increases with order size and generally decreases as execution time allows the book to replenish. Past a point, waiting introduces signal decay, queue loss and information leakage, so the lowest-cost path is usually a constrained region rather than the slowest schedule.</p>
+            <div class="l2-head" style="margin:-24px -24px 0">
+              <div>
+                <strong>CL price-impact surface</strong>
+                <span>Reconstructed from level-2 depth, May 29 2026</span>
+              </div>
+            </div>
+            <p class="muted" style="margin-top:18px">Impact increases with order size and generally decreases as execution time allows the book to replenish. Past a point, waiting introduces signal decay, queue loss and information leakage, so the lowest-cost path is usually a constrained region rather than the slowest schedule.</p>
             <div class="surface-plot" aria-label="Price impact surface generated from reconstructed CL level two depth">
               <iframe class="surface-frame" src="plots/cl_price_impact_surface_20260529.html" title="CL price impact surface" loading="lazy" scrolling="no"></iframe>
             </div>
