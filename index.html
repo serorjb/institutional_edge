@@ -950,17 +950,14 @@
       font-weight: 700;
     }
     .l2-canvases {
-      display: grid;
-      grid-template-rows: 370px 150px;
-      min-height: 520px;
+      min-height: 455px;
     }
     #realL2Canvas,
-    #realSweepCanvas {
+    #realL2Canvas {
       width: 100%;
       height: 100%;
       display: block;
     }
-    #realSweepCanvas { border-top: 1px solid var(--line); }
     .l2-side {
       display: grid;
       gap: 14px;
@@ -1373,7 +1370,7 @@
       .band-item { min-height: auto; }
       .chart-shell { min-height: 500px; }
       #depthCanvas { height: 402px; }
-      .l2-canvases { grid-template-rows: 320px 150px; }
+      .l2-canvases { min-height: 380px; }
       .chart-toolbar { align-items: flex-start; flex-direction: column; }
       .nav { min-height: 64px; }
       .brand span { font-size: 1.08rem; }
@@ -1800,7 +1797,7 @@
             <p class="eyebrow">Real level-2 exhibit</p>
             <h2 id="real-l2-title">A glimpse into the book, not a marketing chart.</h2>
           </div>
-          <p class="lead">This is a compressed real L2 sample from crude oil futures, rendered as net bid-minus-ask liquidity and top-of-book sweep capacity. It shows the kind of state variable that changes how we calibrate urgency, clip size and broker routing.</p>
+          <p class="lead">This is a compressed real L2 sample from crude oil futures, rendered as net bid-minus-ask liquidity through time. It is the kind of state variable that changes how we calibrate urgency, clip size and broker routing.</p>
         </div>
         <div class="real-l2-grid">
           <article class="l2-card">
@@ -1817,7 +1814,6 @@
             </div>
             <div class="l2-canvases">
               <canvas id="realL2Canvas" aria-label="Real level two order book liquidity heatmap"></canvas>
-              <canvas id="realSweepCanvas" aria-label="Top five level sweep cost through time"></canvas>
             </div>
             <div id="realL2Tooltip" class="tooltip" role="status"></div>
           </article>
@@ -1826,12 +1822,12 @@
             <div class="depth-stat"><span>Time buckets</span><strong id="realL2Buckets">160</strong><p>Compressed for the website while preserving the visible liquidity regime changes.</p></div>
             <div class="depth-stat"><span>Price levels</span><strong id="realL2Levels">24</strong><p>Focused around the active traded range rather than displaying empty depth.</p></div>
             <div class="l2-note">
-              <h3>What a CIO should see</h3>
-              <p>Liquidity is not a static number. In the same 20-minute window, visible support can migrate, sweep capacity can widen, and passive execution can move from attractive to dangerous.</p>
+              <h3>What we read from the book</h3>
+              <p>We look beyond best bid and ask. The heatmap exposes <strong>net bid-ask pressure</strong>, <strong>touch size</strong>, queue replenishment, liquidity walls, depletion zones and moments where displayed depth becomes fragile. From there, we estimate <strong>sweep cost</strong>, passive fill probability, adverse-selection risk and whether urgency should be expressed through blocks, randomized clips or patient queue placement.</p>
             </div>
             <div class="l2-note">
-              <h3>How we use it</h3>
-              <p>Real L2 reconstruction informs pre-trade market impact, order slicing, passive versus aggressive posture, futures roll timing and post-trade attribution.</p>
+              <h3>Why it matters</h3>
+              <p>A portfolio manager sees price. An execution specialist sees market texture: resiliency after aggressive flow, spread elasticity, top-of-book exhaustion, hidden capacity clues and where information leakage is likely to start.</p>
             </div>
           </aside>
         </div>
@@ -2285,22 +2281,17 @@
     });
 
     const realL2Canvas = document.getElementById("realL2Canvas");
-    const realSweepCanvas = document.getElementById("realSweepCanvas");
     const realL2Tooltip = document.getElementById("realL2Tooltip");
     const realL2Ctx = realL2Canvas.getContext("2d");
-    const realSweepCtx = realSweepCanvas.getContext("2d");
     let realL2Cells = [];
 
     function resizeRealL2Canvas() {
-      [realL2Canvas, realSweepCanvas].forEach(target => {
-        const rect = target.getBoundingClientRect();
-        const ratio = window.devicePixelRatio || 1;
-        target.width = Math.floor(rect.width * ratio);
-        target.height = Math.floor(rect.height * ratio);
-        target.getContext("2d").setTransform(ratio, 0, 0, ratio, 0, 0);
-      });
+      const rect = realL2Canvas.getBoundingClientRect();
+      const ratio = window.devicePixelRatio || 1;
+      realL2Canvas.width = Math.floor(rect.width * ratio);
+      realL2Canvas.height = Math.floor(rect.height * ratio);
+      realL2Ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       drawRealL2();
-      drawRealSweep();
     }
 
     function l2Color(value, maxAbs) {
@@ -2360,60 +2351,6 @@
       ctx.font = "800 11px Inter, sans-serif";
       ctx.fillText("Price", 14, 16);
       ctx.fillText("Net displayed size: bid minus ask", pad.left, 16);
-    }
-
-    function drawRealSweep() {
-      if (!realL2Data || !realL2Data.sweepBid) return;
-      const ctx = realSweepCtx;
-      const width = realSweepCanvas.clientWidth;
-      const height = realSweepCanvas.clientHeight;
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0, 0, width, height);
-      const pad = { left: 58, right: 20, top: 18, bottom: 26 };
-      const plotW = width - pad.left - pad.right;
-      const plotH = height - pad.top - pad.bottom;
-      const maxY = Math.max(...realL2Data.sweepBid, ...realL2Data.sweepAsk, 1);
-      const minY = 0;
-      const xFor = i => pad.left + (i / Math.max(1, realL2Data.times.length - 1)) * plotW;
-      const yFor = value => pad.top + plotH - ((value - minY) / (maxY - minY)) * plotH;
-
-      ctx.strokeStyle = "#EEF1F4";
-      ctx.lineWidth = 1;
-      for (let i = 0; i <= 3; i++) {
-        const y = pad.top + (plotH / 3) * i;
-        ctx.beginPath();
-        ctx.moveTo(pad.left, y);
-        ctx.lineTo(width - pad.right, y);
-        ctx.stroke();
-      }
-
-      function line(series, color) {
-        ctx.beginPath();
-        series.forEach((value, i) => {
-          const x = xFor(i);
-          const y = yFor(value);
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        });
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
-      line(realL2Data.sweepBid, "#0A2540");
-      line(realL2Data.sweepAsk, "#A94D4D");
-
-      ctx.fillStyle = "#66717E";
-      ctx.font = "700 10px Inter, sans-serif";
-      ctx.fillText("$0", 18, pad.top + plotH);
-      ctx.fillText(`$${Math.round(maxY).toLocaleString()}`, 12, pad.top + 8);
-      ctx.fillStyle = "#0A2540";
-      ctx.font = "800 11px Inter, sans-serif";
-      ctx.fillText(`Cost to sweep top ${realL2Data.levels} levels`, pad.left, 13);
-      ctx.fillStyle = "#0A2540";
-      ctx.fillText("Sell / hit bids", width - 230, 13);
-      ctx.fillStyle = "#A94D4D";
-      ctx.fillText("Buy / lift asks", width - 130, 13);
     }
 
     realL2Canvas.addEventListener("mousemove", event => {
