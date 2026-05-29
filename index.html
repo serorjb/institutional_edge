@@ -919,9 +919,7 @@
 
     .real-l2-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 330px;
-      gap: 24px;
-      align-items: stretch;
+      gap: 16px;
     }
     .l2-card {
       position: relative;
@@ -950,17 +948,20 @@
       font-weight: 700;
     }
     .l2-canvases {
-      min-height: 455px;
+      height: min(59vw, 760px);
+      min-height: 430px;
+      overflow: hidden;
     }
     .l2-frame {
       width: 100%;
-      height: 520px;
+      height: 100%;
       display: block;
       border: 0;
       background: #FFFFFF;
     }
     .l2-side {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
     .l2-note {
@@ -1351,7 +1352,8 @@
       .band-item { min-height: auto; }
       .chart-shell { min-height: 500px; }
       #depthCanvas { height: 402px; }
-      .l2-frame { height: 420px; }
+      .l2-canvases { height: 460px; min-height: 460px; }
+      .l2-side { grid-template-columns: 1fr; }
       .chart-toolbar { align-items: flex-start; flex-direction: column; }
       .nav { min-height: 64px; }
       .brand span { font-size: 1.08rem; }
@@ -1792,10 +1794,7 @@
               <iframe class="l2-frame" src="plots/nymex_cl_l2_heatmap_20260529.html" title="NYMEX CL level two liquidity heatmap" loading="lazy"></iframe>
             </div>
           </article>
-          <aside class="l2-side">
-            <div class="depth-stat"><span>Updates processed</span><strong>81,000</strong><p>Order-book insert, update and delete events reconstructed into book states.</p></div>
-            <div class="depth-stat"><span>Sampling</span><strong>1s</strong><p>High-resolution time slices preserve visible changes in liquidity pressure.</p></div>
-            <div class="depth-stat"><span>Price ladder</span><strong>CL</strong><p>Focused around the active traded range rather than displaying empty depth.</p></div>
+          <div class="l2-side">
             <div class="l2-note">
               <h3>What we read from the book</h3>
               <p>We look beyond best bid and ask. The heatmap exposes <strong>net bid-ask pressure</strong>, <strong>touch size</strong>, queue replenishment, liquidity walls, depletion zones and moments where displayed depth becomes fragile. From there, we estimate <strong>sweep cost</strong>, passive fill probability, adverse-selection risk and whether urgency should be expressed through blocks, randomized clips or patient queue placement.</p>
@@ -1804,7 +1803,7 @@
               <h3>Why it matters</h3>
               <p>A portfolio manager sees price. An execution specialist sees market texture: resiliency after aggressive flow, spread elasticity, top-of-book exhaustion, hidden capacity clues and where information leakage is likely to start.</p>
             </div>
-          </aside>
+          </div>
         </div>
       </div>
     </section>
