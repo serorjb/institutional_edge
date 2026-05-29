@@ -649,42 +649,19 @@
       box-shadow: var(--shadow);
     }
     .surface-plot {
-      position: relative;
-      height: 285px;
+      height: 340px;
       margin-top: 18px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       overflow: hidden;
-      background: linear-gradient(135deg, #F7FAFC, #E8EEF4);
+      background: #FFFFFF;
     }
-    .surface-plot::before {
-      content: "";
-      position: absolute;
-      inset: 34px 30px 42px 42px;
-      background:
-        linear-gradient(rgba(10,37,64,.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(10,37,64,.09) 1px, transparent 1px);
-      background-size: 30px 24px;
-      transform: perspective(760px) rotateX(58deg) rotateZ(-18deg) translateY(50px);
-      transform-origin: center;
-      border: 1px solid rgba(10,37,64,.08);
-    }
-    .surface-svg {
-      position: absolute;
-      inset: 20px;
-      z-index: 1;
-      width: calc(100% - 40px);
-      height: calc(100% - 40px);
-    }
-    .surface-label {
-      position: absolute;
-      padding: 6px 8px;
-      border: 1px solid rgba(10,37,64,.12);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.82);
-      color: var(--blue);
-      font-size: .74rem;
-      font-weight: 900;
+    .surface-frame {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      overflow: hidden;
     }
     .schedule-plot {
       min-height: 440px;
@@ -948,8 +925,8 @@
       font-weight: 700;
     }
     .l2-canvases {
-      height: min(59vw, 760px);
-      min-height: 430px;
+      height: min(50vw, 660px);
+      min-height: 380px;
       overflow: hidden;
     }
     .l2-frame {
@@ -958,6 +935,7 @@
       display: block;
       border: 0;
       background: #FFFFFF;
+      overflow: hidden;
     }
     .l2-side {
       display: grid;
@@ -1352,7 +1330,7 @@
       .band-item { min-height: auto; }
       .chart-shell { min-height: 500px; }
       #depthCanvas { height: 402px; }
-      .l2-canvases { height: 460px; min-height: 460px; }
+      .l2-canvases { height: 390px; min-height: 390px; }
       .l2-side { grid-template-columns: 1fr; }
       .chart-toolbar { align-items: flex-start; flex-direction: column; }
       .nav { min-height: 64px; }
@@ -1629,30 +1607,9 @@
           </aside>
           <article class="impact-surface">
             <h3>Price impact surface</h3>
-            <p class="muted">Impact increases with order size and generally decreases with execution time, until signal decay and leakage reverse the benefit of waiting.</p>
-            <div class="surface-plot" aria-label="Stylized price impact surface">
-              <svg class="surface-svg" viewBox="0 0 520 260" role="img" aria-label="Price impact surface rising with order size and falling with execution time">
-                <defs>
-                  <linearGradient id="impactGrad" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#2F7D69" stop-opacity=".84"/>
-                    <stop offset="48%" stop-color="#B88A44" stop-opacity=".82"/>
-                    <stop offset="100%" stop-color="#A94D4D" stop-opacity=".9"/>
-                  </linearGradient>
-                </defs>
-                <polygon points="70,198 170,178 285,138 430,52 468,86 318,168 186,215 92,229" fill="url(#impactGrad)" stroke="#0A2540" stroke-opacity=".34"/>
-                <polyline points="70,198 170,178 285,138 430,52" fill="none" stroke="#0A2540" stroke-width="2" stroke-opacity=".45"/>
-                <polyline points="92,229 186,215 318,168 468,86" fill="none" stroke="#0A2540" stroke-width="2" stroke-opacity=".28"/>
-                <line x1="70" y1="198" x2="92" y2="229" stroke="#0A2540" stroke-opacity=".18"/>
-                <line x1="170" y1="178" x2="186" y2="215" stroke="#0A2540" stroke-opacity=".18"/>
-                <line x1="285" y1="138" x2="318" y2="168" stroke="#0A2540" stroke-opacity=".18"/>
-                <line x1="430" y1="52" x2="468" y2="86" stroke="#0A2540" stroke-opacity=".18"/>
-                <text x="404" y="42" fill="#0A2540" font-size="13" font-weight="800">large order / short time</text>
-                <text x="68" y="247" fill="#0A2540" font-size="12" font-weight="800">small order / longer time</text>
-              </svg>
-              <span class="surface-label" style="right:24px;top:22px;">High impact</span>
-              <span class="surface-label" style="left:26px;bottom:24px;">Low impact</span>
-              <span class="surface-label" style="left:42%;bottom:18px;">Execution time</span>
-              <span class="surface-label" style="right:20px;bottom:72px;">Order size</span>
+            <p class="muted">Impact increases with order size and generally decreases as execution time allows the book to replenish. Past a point, waiting introduces signal decay, queue loss and information leakage, so the lowest-cost path is usually a constrained region rather than the slowest schedule.</p>
+            <div class="surface-plot" aria-label="Price impact surface generated from reconstructed CL level two depth">
+              <iframe class="surface-frame" src="plots/cl_price_impact_surface_20260529.html" title="CL price impact surface" loading="lazy" scrolling="no"></iframe>
             </div>
           </article>
           <article class="schedule-plot">
@@ -1791,7 +1748,7 @@
               </div>
             </div>
             <div class="l2-canvases">
-              <iframe class="l2-frame" src="plots/nymex_cl_l2_heatmap_20260529.html" title="NYMEX CL level two liquidity heatmap" loading="lazy"></iframe>
+              <iframe class="l2-frame" src="plots/nymex_cl_l2_heatmap_20260529.html" title="NYMEX CL level two liquidity heatmap" loading="lazy" scrolling="no"></iframe>
             </div>
           </article>
           <div class="l2-side">
