@@ -35,7 +35,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       margin: 0;
       background: var(--paper);
@@ -43,6 +43,7 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.55;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -904,11 +905,13 @@
       letter-spacing: .08em;
       text-transform: uppercase;
     }
-    .logo-box img {
+    .logo-box .wordmark {
       max-width: 112px;
       max-height: 34px;
-      object-fit: contain;
-      filter: grayscale(1) contrast(.95);
+      color: #5B6774;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: .03em;
       opacity: .76;
     }
     .logo-box.nasdaq {
@@ -1259,10 +1262,24 @@
       .band-item { min-height: auto; }
       .l2-canvases { height: 390px; min-height: 390px; }
       .l2-side { grid-template-columns: 1fr; }
-      .nav { min-height: 64px; }
-      .brand span { font-size: 1.08rem; }
-      .nav .btn { display: none; }
-      h1 { font-size: clamp(3rem, 18vw, 4.8rem); }
+      .nav { min-height: 64px; gap: 10px; }
+      .brand span { font-size: .98rem; }
+      .nav-links { margin-left: auto; gap: 0; flex: 0 0 auto; }
+      .nav .btn {
+        display: inline-flex;
+        min-height: 38px;
+        padding: 8px 10px;
+        font-size: .76rem;
+        white-space: nowrap;
+      }
+      .nav .btn i { display: none; }
+      .pill { white-space: normal; max-width: 100%; }
+      .hero-actions .btn {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      h1 { font-size: clamp(2.75rem, 16vw, 4.5rem); }
       .contact { padding-top: 76px; }
     }
   </style>
@@ -1292,7 +1309,6 @@
             <span class="pill"><i class="fa-solid fa-chart-line"></i> Independent quant advisory</span>
             <span class="pill"><i class="fa-solid fa-scale-balanced"></i> Unbiased execution research</span>
             <span class="pill"><i class="fa-solid fa-layer-group"></i> Portfolio, execution and manager diligence</span>
-            <span class="pill"><i class="fa-solid fa-microscope"></i> Microstructure expertise</span>
           </div>
           <h1 id="hero-title">Institutional Edge</h1>
           <p class="tagline">Prime institutional experience applied to your portfolio.</p>
@@ -1505,12 +1521,6 @@
         </div>
         <div class="real-l2-grid">
           <article class="l2-card">
-            <div class="l2-head">
-              <div>
-                <strong>NYMEX CL crude oil futures</strong>
-                <span>Real level-2 heatmap, May 29 2026</span>
-              </div>
-            </div>
             <div class="l2-canvases">
               <iframe class="l2-frame" src="plots/nymex_cl_l2_heatmap_20260529.html" title="NYMEX CL level two liquidity heatmap" loading="lazy" scrolling="no"></iframe>
             </div>
@@ -1665,35 +1675,35 @@
             <div class="exchange-group">
               <h3><i class="fa-solid fa-chart-line"></i> Equities and options venues</h3>
               <div class="logos" aria-label="Equities exchange venues">
-                <div class="logo-box" role="img" aria-label="NYSE logo"><img src="assets/logos/nyse.svg" alt="NYSE logo" loading="lazy"><span>New York</span></div>
-                <div class="logo-box" role="img" aria-label="Nasdaq logo"><img src="assets/logos/nasdaq.svg" alt="Nasdaq logo" loading="lazy"><span>New York</span></div>
-                <div class="logo-box" role="img" aria-label="Cboe logo"><img src="assets/logos/cboe.svg" alt="Cboe logo" loading="lazy"><span>Chicago</span></div>
-                <div class="logo-box" role="img" aria-label="Euronext Paris logo"><img src="assets/logos/euronext.svg" alt="Euronext logo" loading="lazy"><span>Paris</span></div>
-                <div class="logo-box" role="img" aria-label="London Stock Exchange Group logo"><img src="assets/logos/lseg.svg" alt="LSEG logo" loading="lazy"><span>London</span></div>
-                <div class="logo-box" role="img" aria-label="SIX Swiss Exchange logo"><img src="assets/logos/six.svg" alt="SIX Swiss Exchange logo" loading="lazy"><span>Zurich</span></div>
-                <div class="logo-box" role="img" aria-label="HKEX logo"><img src="assets/logos/hkex.svg" alt="HKEX logo" loading="lazy"><span>Hong Kong</span></div>
-                <div class="logo-box" role="img" aria-label="Singapore Exchange logo"><img src="assets/logos/sgx.svg" alt="SGX logo" loading="lazy"><span>Singapore</span></div>
-                <div class="logo-box" role="img" aria-label="MIAX logo"><img src="assets/logos/miax.svg" alt="MIAX logo" loading="lazy"><span>Miami</span></div>
-                <div class="logo-box" role="img" aria-label="ADX logo"><img src="assets/logos/adx.svg" alt="ADX logo" loading="lazy"><span>Abu Dhabi</span></div>
-                <div class="logo-box" role="img" aria-label="Dubai Financial Market logo"><img src="assets/logos/dfm.svg" alt="Dubai Financial Market logo" loading="lazy"><span>Dubai</span></div>
-                <div class="logo-box" role="img" aria-label="Nasdaq Dubai logo"><img src="assets/logos/nasdaq-dubai.svg" alt="Nasdaq Dubai logo" loading="lazy"><span>Dubai</span></div>
+                <div class="logo-box" role="img" aria-label="NYSE logo"><b class="wordmark">NYSE</b><span>New York</span></div>
+                <div class="logo-box" role="img" aria-label="Nasdaq logo"><b class="wordmark">Nasdaq</b><span>New York</span></div>
+                <div class="logo-box" role="img" aria-label="Cboe logo"><b class="wordmark">Cboe</b><span>Chicago</span></div>
+                <div class="logo-box" role="img" aria-label="Euronext Paris logo"><b class="wordmark">Euronext</b><span>Paris</span></div>
+                <div class="logo-box" role="img" aria-label="London Stock Exchange Group logo"><b class="wordmark">LSEG</b><span>London</span></div>
+                <div class="logo-box" role="img" aria-label="SIX Swiss Exchange logo"><b class="wordmark">SIX</b><span>Zurich</span></div>
+                <div class="logo-box" role="img" aria-label="HKEX logo"><b class="wordmark">HKEX</b><span>Hong Kong</span></div>
+                <div class="logo-box" role="img" aria-label="Singapore Exchange logo"><b class="wordmark">SGX</b><span>Singapore</span></div>
+                <div class="logo-box" role="img" aria-label="MIAX logo"><b class="wordmark">MIAX</b><span>Miami</span></div>
+                <div class="logo-box" role="img" aria-label="ADX logo"><b class="wordmark">ADX</b><span>Abu Dhabi</span></div>
+                <div class="logo-box" role="img" aria-label="Dubai Financial Market logo"><b class="wordmark">DFM</b><span>Dubai</span></div>
+                <div class="logo-box" role="img" aria-label="Nasdaq Dubai logo"><b class="wordmark">Nasdaq Dubai</b><span>Dubai</span></div>
               </div>
             </div>
             <div class="exchange-group">
               <h3><i class="fa-solid fa-chart-area"></i> Futures and listed derivatives</h3>
               <div class="logos" aria-label="Futures and derivatives exchange venues">
-                <div class="logo-box" role="img" aria-label="CME Group logo"><img src="assets/logos/cme.svg" alt="CME Group logo" loading="lazy"><span>Chicago</span></div>
-                <div class="logo-box" role="img" aria-label="CBOT logo"><img src="assets/logos/cbot.svg" alt="CBOT logo" loading="lazy"><span>Chicago</span></div>
-                <div class="logo-box" role="img" aria-label="NYMEX logo"><img src="assets/logos/nymex.svg" alt="NYMEX logo" loading="lazy"><span>New York</span></div>
-                <div class="logo-box" role="img" aria-label="COMEX logo"><img src="assets/logos/comex.svg" alt="COMEX logo" loading="lazy"><span>New York</span></div>
-                <div class="logo-box" role="img" aria-label="ICE Futures logo"><img src="assets/logos/ice.svg" alt="ICE logo" loading="lazy"><span>London / New York</span></div>
-                <div class="logo-box" role="img" aria-label="ICE Futures Abu Dhabi logo"><img src="assets/logos/ice-adx.svg" alt="ICE Futures Abu Dhabi logo" loading="lazy"><span>Abu Dhabi</span></div>
-                <div class="logo-box" role="img" aria-label="London Metal Exchange logo"><img src="assets/logos/lme.svg" alt="LME logo" loading="lazy"><span>London</span></div>
-                <div class="logo-box" role="img" aria-label="Euronext Derivatives logo"><img src="assets/logos/euronext.svg" alt="Euronext logo" loading="lazy"><span>Paris</span></div>
-                <div class="logo-box" role="img" aria-label="Eurex logo"><img src="assets/logos/eurex.svg" alt="Eurex logo" loading="lazy"><span>Zurich-linked</span></div>
-                <div class="logo-box" role="img" aria-label="SGX Derivatives logo"><img src="assets/logos/sgx.svg" alt="SGX logo" loading="lazy"><span>Singapore</span></div>
-                <div class="logo-box" role="img" aria-label="HKEX Derivatives logo"><img src="assets/logos/hkex.svg" alt="HKEX logo" loading="lazy"><span>Hong Kong</span></div>
-                <div class="logo-box" role="img" aria-label="Dubai Gold and Commodities Exchange logo"><img src="assets/logos/dgcx.svg" alt="DGCX logo" loading="lazy"><span>Dubai</span></div>
+                <div class="logo-box" role="img" aria-label="CME Group logo"><b class="wordmark">CME</b><span>Chicago</span></div>
+                <div class="logo-box" role="img" aria-label="CBOT logo"><b class="wordmark">CBOT</b><span>Chicago</span></div>
+                <div class="logo-box" role="img" aria-label="NYMEX logo"><b class="wordmark">NYMEX</b><span>New York</span></div>
+                <div class="logo-box" role="img" aria-label="COMEX logo"><b class="wordmark">COMEX</b><span>New York</span></div>
+                <div class="logo-box" role="img" aria-label="ICE Futures logo"><b class="wordmark">ICE</b><span>London / New York</span></div>
+                <div class="logo-box" role="img" aria-label="ICE Futures Abu Dhabi logo"><b class="wordmark">ICE ADX</b><span>Abu Dhabi</span></div>
+                <div class="logo-box" role="img" aria-label="London Metal Exchange logo"><b class="wordmark">LME</b><span>London</span></div>
+                <div class="logo-box" role="img" aria-label="Euronext Derivatives logo"><b class="wordmark">Euronext</b><span>Paris</span></div>
+                <div class="logo-box" role="img" aria-label="Eurex logo"><b class="wordmark">Eurex</b><span>Zurich-linked</span></div>
+                <div class="logo-box" role="img" aria-label="SGX Derivatives logo"><b class="wordmark">SGX</b><span>Singapore</span></div>
+                <div class="logo-box" role="img" aria-label="HKEX Derivatives logo"><b class="wordmark">HKEX</b><span>Hong Kong</span></div>
+                <div class="logo-box" role="img" aria-label="Dubai Gold and Commodities Exchange logo"><b class="wordmark">DGCX</b><span>Dubai</span></div>
               </div>
             </div>
           </div>
