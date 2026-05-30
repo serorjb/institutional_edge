@@ -35,7 +35,7 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: hidden; }
     body {
       margin: 0;
       background: var(--paper);
@@ -58,6 +58,7 @@
       text-transform: uppercase;
     }
     .section {
+      scroll-margin-top: 88px;
       padding: 96px 0;
       border-top: 1px solid var(--line);
     }
@@ -135,13 +136,16 @@
     .btn.secondary:hover { background: rgba(10,37,64,.05); box-shadow: none; }
 
     .site-header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 30;
       border-bottom: 1px solid rgba(221,227,233,.84);
       background: rgba(248,249,250,.9);
       backdrop-filter: blur(16px);
     }
+    main { padding-top: 72px; }
     .nav {
       display: flex;
       align-items: center;
@@ -769,6 +773,7 @@
     }
     .l2-card {
       position: relative;
+      padding: 8px;
       border: 1px solid var(--line-strong);
       border-radius: var(--radius);
       background: var(--white);
@@ -794,9 +799,10 @@
       font-weight: 700;
     }
     .l2-canvases {
-      height: min(50vw, 660px);
-      min-height: 380px;
+      height: min(48vw, 620px);
+      min-height: 360px;
       overflow: hidden;
+      border-radius: calc(var(--radius) - 2px);
     }
     .l2-frame {
       width: 100%;
@@ -1233,6 +1239,9 @@
     }
     @media (max-width: 760px) {
       .container { width: min(100% - 28px, var(--max)); }
+      html { scroll-padding-top: 76px; }
+      main { padding-top: 64px; }
+      .section { scroll-margin-top: 76px; }
       .section { padding: 70px 0; }
       .hero { padding-top: 54px; }
       .hero-grid { gap: 28px; }
@@ -1260,7 +1269,7 @@
       .metric,
       .band-item { border-right: 0; border-bottom: 1px solid var(--line); }
       .band-item { min-height: auto; }
-      .l2-canvases { height: 390px; min-height: 390px; }
+      .l2-canvases { height: 360px; min-height: 360px; }
       .l2-side { grid-template-columns: 1fr; }
       .nav { min-height: 64px; gap: 10px; }
       .brand span { font-size: .98rem; }
